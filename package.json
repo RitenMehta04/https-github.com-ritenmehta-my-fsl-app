@@ -25,7 +25,8 @@
     "husky": "^9.1.7",
     "jest": "^29.7.0",
     "lint-staged": "^16.2.6",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "supertest": "^7.1.4"
   },
   "dependencies": {
     "express": "^4.19.2"
@@ -34,5 +35,17 @@
     "moduleNameMapper": {
       "^(\\.{1,2}/.*)\\.js$": "$1"
     }
-  }
+  },
+  "description": "CI pipeline with ESLint, Jest, and build step.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RitenMehta04/my-fsl-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RitenMehta04/my-fsl-app/issues"
+  },
+  "homepage": "https://github.com/RitenMehta04/my-fsl-app#readme"
 }

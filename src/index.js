@@ -1,9 +1,7 @@
 // src/index.js
 import express from 'express';
 
-const app = express();
-const PORT = process.env.PORT || 8080;
-
+export const app = express();
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -11,11 +9,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'OK', replicas: process.env.HOSTNAME || 'local' });
+  res.json({ status: 'OK' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
-export { app }; // For testing
+// Only start server when NOT in test
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(8080, () => {
+    console.log('Server running on port 8080');
+  });
+}
