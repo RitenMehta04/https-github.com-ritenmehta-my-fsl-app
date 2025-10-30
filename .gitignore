@@ -1,5 +1,6 @@
 # .prettierignore
 node_modules/
+.husky/_/
 dist/
 build/
 coverage/
