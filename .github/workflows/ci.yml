@@ -1,43 +1,18 @@
-# .github/workflows/ci.yml
 name: CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
-  build-and-test:
-    runs-on: macos-latest   # or ubuntu-latest – works on any runner
-
+  test:
+    runs-on: ubuntu-latest
     steps:
-      # 1. Checkout the code
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # 2. Install the exact Node version you need
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20.19.5'   # <-- match the version you see in the logs
-          cache: 'npm'              # optional but speeds up runs
-
-      # 3. (Optional) Verify the versions – helps debug
-      - name: Show versions
-        run: |
-          node --version
-          npm --version
-          yarn --version || echo "yarn not installed"
-
-      # 4. Clean-install dependencies
-      - name: Install dependencies
-        run: npm ci
-
-      # 5. Lint
-      - name: Run lint
-        run: npm run lint
-
-      # 6. Run tests (add your own test script if it differs)
-      - name: Run tests
-        run: npm test   # or npm run test, etc.
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+        env:
+          NODE_OPTIONS: --experimental-vm-modules
