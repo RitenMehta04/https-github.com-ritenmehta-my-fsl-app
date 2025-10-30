@@ -1,2 +1,3 @@
 # https-github.com-ritenmehta-my-fsl-app
-Fullstack 
+# FSL DevOps Challenge – Part 1
+CI pipeline with ESLint, Jest, and build step.
