@@ -7,7 +7,7 @@ on:
 env:
   ECR_REPOSITORY: my-fsl-app
   AWS_REGION: us-east-1 # Your region
-  CLUSTER_NAME: fsl-cluster # Your EKS name
+  CLUSTER_NAME: hilarious-electro-badger # Your EKS name
 
 jobs:
   deploy:
